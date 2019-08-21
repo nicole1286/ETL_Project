@@ -15,6 +15,7 @@ CREATE TABLE happiness (
 	happy_score float);
 	
 CREATE TABLE freedom (
+	year text,
 	country varchar,
 	freedom_score float,
 	freedom_rank float
@@ -25,10 +26,13 @@ select * from governments
 select * from freedom
 
 select * from happiness
-
+-- Combine happy and freedom tables
 select h.country, h.region, h.happy_rank, h.happy_score,
 	f.freedom_score, f.freedom_rank
 from happiness h
 left join freedom f
-on h.country=f.country;
+on h.country=f.country
+order by h.happy_rank;
+
+DELETE FROM freedom
 		
