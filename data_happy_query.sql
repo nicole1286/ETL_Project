@@ -44,3 +44,9 @@ select * from freedom where freedom_score is NULL;
 
 --Remove NULLS from freedom
 DELETE FROM freedom where freedom_score is NULL;
+
+SELECT h.Country, h.Region, h.rank, h.happy_score,
+		f.freedom_score, f.rank
+FROM Happiness as h 
+LEFT JOIN Freedom as f
+ON h.country = f.country;
