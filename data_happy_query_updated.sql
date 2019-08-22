@@ -34,5 +34,16 @@ left join freedom f
 on h.country=f.country
 order by h.happy_rank;
 
-DELETE FROM freedom
+--Combine happiness, freedom and govenment tables
+select h.country, h.region, h.happy_rank, h.happy_score,
+	f.freedom_score, f.freedom_rank, g.gov_type, g.head
+from happiness h
+left join freedom f
+on h.country=f.country
+left join governments g
+on h.country=g.country
+order by h.happy_rank;
+
+
+
 		
